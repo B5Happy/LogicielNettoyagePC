@@ -5,8 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LogicielNettoyagePC"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        x:Name="fenetre"
+        Title="Logiciel nettoyage" Height="700" Width="1000" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/clean.png">
     <Grid>
+        <Rectangle HorizontalAlignment="Center" Height="175" Stroke="Black" VerticalAlignment="Top" Width="1000" Fill="#FF007791" StrokeThickness="0"/>
+        <!-- Titre -->
+        <Label x:Name="titre" Content="Analyse du PC nécessaire" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="526" Height="59" Foreground="White" FontFamily="Arial" FontSize="40" FontWeight="Bold" FontStyle="Normal"/>
+        <!-- Sous Titre -->
+        <Label x:Name="sous_titre" Content="Espace à nettoyer:" HorizontalAlignment="Left" Margin="19,88,0,0" VerticalAlignment="Top" Width="222" Height="32" Foreground="White" FontFamily="Arial" FontSize="22" FontWeight="Bold"/>
+        <Label x:Name="sous_titre2" Content="Dernière analyse: &#xD;&#xA;" HorizontalAlignment="Left" Margin="19,125,0,0" VerticalAlignment="Top" Width="206" Height="32" Foreground="White" FontFamily="Arial" FontSize="22" FontWeight="Bold"/>
+        <!-- Valeurs -->
+        <Label x:Name="date" Content="Jamais" HorizontalAlignment="Left" Margin="214,125,0,0" VerticalAlignment="Top" Width="78" Height="32" Foreground="White" FontFamily="Arial Narrow" FontSize="22" FontWeight="Normal"/>
+        <Label x:Name="espace" Content="??? Mb" HorizontalAlignment="Left" Margin="234,88,0,0" VerticalAlignment="Top" Width="78" Height="32" Foreground="White" FontFamily="Arial Narrow" FontSize="22" FontWeight="Normal"/>
+        <Button x:Name="button" Content="ANALYSER" HorizontalAlignment="Left" Margin="737,53,0,0" VerticalAlignment="Top" Height="77" Width="212" Background="#FF007791" Foreground="White" BorderThickness="6,6,6,6" BorderBrush="White" FontFamily="Arial" FontSize="26" FontWeight="Bold"/>
+        <Rectangle HorizontalAlignment="Center" Height="12" Margin="0,175,0,0" Stroke="Black" VerticalAlignment="Top" Width="1000" Fill="#FFF9F9F9" StrokeThickness="0"/>
 
     </Grid>
 </Window>
