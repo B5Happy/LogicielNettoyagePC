@@ -8,10 +8,20 @@
 
   <ItemGroup>
     <None Remove="clean.png" />
+    <None Remove="historique.png" />
+    <None Remove="sweeping.png" />
+    <None Remove="update.png" />
+    <None Remove="www.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="clean.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="historique.png" />
+    <Resource Include="sweeping.png" />
+    <Resource Include="update.png" />
+    <Resource Include="www.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

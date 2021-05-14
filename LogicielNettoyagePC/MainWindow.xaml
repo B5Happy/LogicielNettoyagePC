@@ -20,5 +20,24 @@
         <Button x:Name="button" Content="ANALYSER" HorizontalAlignment="Left" Margin="737,53,0,0" VerticalAlignment="Top" Height="77" Width="212" Background="#FF007791" Foreground="White" BorderThickness="6,6,6,6" BorderBrush="White" FontFamily="Arial" FontSize="26" FontWeight="Bold"/>
         <Rectangle HorizontalAlignment="Center" Height="12" Margin="0,175,0,0" Stroke="Black" VerticalAlignment="Top" Width="1000" Fill="#FFF9F9F9" StrokeThickness="0"/>
 
+        <!-- Content -->
+        <Button x:Name="nettoyer_btn" Content="&#xA;NETTOYER" HorizontalAlignment="Left" Margin="29,208,0,0" VerticalAlignment="Top" Height="175" Width="453" Background="#FF007791" Foreground="White" BorderThickness="6,6,6,6" BorderBrush="White" FontFamily="Arial" FontSize="26" FontWeight="Bold" Click="button_Copy_Click"/>
+        <Image Source="/sweeping.png" Margin="216,229,690,382" Visibility="Visible" IsHitTestVisible="False"  />
+        <Button x:Name="miss_a_jour_btn" Content="&#xA;MISE A JOUR" HorizontalAlignment="Left" Margin="29,388,0,0" VerticalAlignment="Top" Height="175" Width="453" Background="#FF007791" Foreground="White" BorderThickness="6,6,6,6" BorderBrush="White" FontFamily="Arial" FontSize="26" FontWeight="Bold" Click="miss_a_jour_btn_Click"/>
+        <Image Source="/update.png" Margin="205,404,694,207" Visibility="Visible" IsHitTestVisible="False"  />
+        <Button x:Name="site_web_btn" Content="&#xA;SITE WEB" HorizontalAlignment="Left" Margin="500,388,0,0" VerticalAlignment="Top" Height="175" Width="453" Background="#FF007791" Foreground="White" BorderThickness="6,6,6,6" BorderBrush="White" FontFamily="Arial" FontSize="26" FontWeight="Bold" Click="site_web_btn_Click"/>
+        <Image Source="/www.png" Margin="690,392,236,194" Visibility="Visible" IsHitTestVisible="False"  />
+        <Button x:Name="hitorique_btn" Content="&#xA;HISTORIQUE" HorizontalAlignment="Left" Margin="500,208,0,0" VerticalAlignment="Top" Height="175" Width="449" Background="#FF007791" Foreground="White" BorderThickness="6,6,6,6" BorderBrush="White" FontFamily="Arial" FontSize="26" FontWeight="Bold" Click="hitorique_btn_Click"/>
+        <Image Source="/historique.png" Margin="683,229,229,382" Visibility="Visible" IsHitTestVisible="False"  />
+
+
+        <!-- Footer-->
+        <Rectangle HorizontalAlignment="Center" Height="90" Margin="0,594,0,0" Stroke="Black" VerticalAlignment="Top" Width="1000" Fill="#FFF9F9F9" StrokeThickness="0"/>
+        <Label Content="Copyright 2021 - BHappy" HorizontalAlignment="Center" Margin="0,601,0,0" VerticalAlignment="Top" Width="228" Height="42" Foreground="Black" FontFamily="Arial Narrow" FontSize="22" FontWeight="Normal"/>
+        <Rectangle HorizontalAlignment="Center" Height="40" Margin="0,644,0,0" Stroke="Black" VerticalAlignment="Top" Width="1000" Fill="#FFF36A6A" StrokeThickness="0" Visibility="Hidden"/>
+        <Label Content="Copyright 2020 - BHappy" HorizontalAlignment="Center" Margin="0,644,0,0" VerticalAlignment="Top" Width="228" Height="42" Foreground="Black" FontFamily="Arial Narrow" FontSize="22" FontWeight="Normal" Visibility="Hidden"/>
+
+
+
     </Grid>
 </Window>

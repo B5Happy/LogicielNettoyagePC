@@ -24,5 +24,26 @@ namespace LogicielNettoyagePC
         {
             InitializeComponent();
         }
+
+
+        private void miss_a_jour_btn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void button_Copy_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void hitorique_btn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void site_web_btn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
