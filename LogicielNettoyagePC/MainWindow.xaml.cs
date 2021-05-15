@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,23 +27,30 @@ namespace LogicielNettoyagePC
         }
 
 
-        private void miss_a_jour_btn_Click(object sender, RoutedEventArgs e)
+        private void Mise_a_jour_btn_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("Votre logiciel est à jour!", "Mise à jour",MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
-        private void button_Copy_Click(object sender, RoutedEventArgs e)
-        {
 
+        private void Hitorique_btn_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("TODO", "Historique", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
-        private void hitorique_btn_Click(object sender, RoutedEventArgs e)
+        private void Site_web_btn_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                Process.Start(new ProcessStartInfo("http://google.fr")
+                {
+                    UseShellExecute = true
+                });
 
-        }
-
-        private void site_web_btn_Click(object sender, RoutedEventArgs e)
-        {
+            } catch (Exception ex)
+            {
+                Console.WriteLine("Erreur : " + ex.Message);
+            }
 
         }
     }
