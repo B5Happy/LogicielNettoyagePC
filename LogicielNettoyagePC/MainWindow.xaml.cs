@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,13 +22,55 @@ namespace LogicielNettoyagePC
     /// </summary>
     public partial class MainWindow : Window
     {
+        public DirectoryInfo winTemp;
+        public DirectoryInfo appTemp;
+
         public MainWindow()
         {
             InitializeComponent();
+            winTemp = new DirectoryInfo(@"C:\Windows\Temp");
+            appTemp = new DirectoryInfo(System.IO.Path.GetTempPath());
+
         }
 
+        //Calcul de la taille d'un dossier
+        public long DirSize(DirectoryInfo dir)
+        {
+            return dir.GetFiles().Sum(fi => fi.Length) + dir.GetDirectories().Sum(di => DirSize(dir));
+        }
 
-        private void Mise_a_jour_btn_Click(object sender, RoutedEventArgs e)
+        // Vider un dossier
+        public void ClearTempData(DirectoryInfo di)
+        {
+            foreach (FileInfo file in di.GetFiles())
+            {
+                try
+                {
+                    file.Delete();
+                    Console.WriteLine(file.FullName);
+                }
+                catch (Exception ex)
+                {
+                    continue;
+                }
+            }
+
+            foreach (DirectoryInfo dir in di.GetDirectories())
+            {
+                try
+                {
+                    dir.Delete();
+                    Console.WriteLine(dir.FullName);
+                }
+                catch (Exception ex)
+                {
+                    continue;
+                }
+            }
+
+        }
+
+        private void Miss_a_jour_btn_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Votre logiciel est à jour!", "Mise à jour",MessageBoxButton.OK, MessageBoxImage.Information);
         }
@@ -51,6 +94,32 @@ namespace LogicielNettoyagePC
             {
                 Console.WriteLine("Erreur : " + ex.Message);
             }
+
+        }
+
+        private void Analyser_btn_Click(object sender, RoutedEventArgs e)
+        {
+            AanalyseFolders();
+        }
+
+        public void AanalyseFolders()
+        {
+            Console.WriteLine("Début de l'analyse...");
+            long totalSize = 0;
+
+            try
+            {
+                totalSize += DirSize(winTemp) / 1000000;
+                totalSize += DirSize(appTemp) / 1000000;
+            } catch(Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+
+            espace.Content = totalSize + " Mb";
+            date.Content = DateTime.Today;
+
 
         }
     }

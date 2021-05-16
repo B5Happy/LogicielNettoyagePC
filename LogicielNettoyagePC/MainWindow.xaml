@@ -17,7 +17,7 @@
         <!-- Valeurs -->
         <Label x:Name="date" Content="Jamais" HorizontalAlignment="Left" Margin="214,125,0,0" VerticalAlignment="Top" Width="78" Height="32" Foreground="White" FontFamily="Arial Narrow" FontSize="22" FontWeight="Normal"/>
         <Label x:Name="espace" Content="??? Mb" HorizontalAlignment="Left" Margin="234,88,0,0" VerticalAlignment="Top" Width="78" Height="32" Foreground="White" FontFamily="Arial Narrow" FontSize="22" FontWeight="Normal"/>
-        <Button x:Name="button" Content="ANALYSER" HorizontalAlignment="Left" Margin="737,53,0,0" VerticalAlignment="Top" Height="77" Width="212" Background="#FF007791" Foreground="White" BorderThickness="6,6,6,6" BorderBrush="White" FontFamily="Arial" FontSize="26" FontWeight="Bold"/>
+        <Button x:Name="Analyser" Content="ANALYSER" HorizontalAlignment="Left" Margin="737,53,0,0" VerticalAlignment="Top" Height="77" Width="212" Background="#FF007791" Foreground="White" BorderThickness="6,6,6,6" BorderBrush="White" FontFamily="Arial" FontSize="26" FontWeight="Bold" Click="Analyser_btn_Click"/>
         <Rectangle HorizontalAlignment="Center" Height="12" Margin="0,175,0,0" Stroke="Black" VerticalAlignment="Top" Width="1000" Fill="#FFF9F9F9" StrokeThickness="0"/>
 
         <!-- Content -->
