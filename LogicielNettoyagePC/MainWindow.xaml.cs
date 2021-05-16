@@ -116,11 +116,39 @@ namespace LogicielNettoyagePC
                 Console.WriteLine("Error: " + ex.Message);
             }
 
-
             espace.Content = totalSize + " Mb";
+            titre.Content = "Analyse effectué !";
             date.Content = DateTime.Today;
 
+        }
 
+        private void Nettoyer_btn_Click(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("Nettoyage en cours...");
+            Nettoyer_btn.Content = "NETTOYAGE EN COURS";
+
+            Clipboard.Clear();
+
+            try
+            {
+                ClearTempData(winTemp);
+            } catch (Exception ex)
+            {
+                Console.WriteLine("Erreur : " + ex.Message);
+            }
+
+            try
+            {
+                ClearTempData(appTemp);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erreur : " + ex.Message);
+            }
+
+            Nettoyer_btn.Content = "NETTOYAGE TERMINE";
+            titre.Content = "Nettoyage effectué !";
+            espace.Content = "0 Mb";
         }
     }
 }
