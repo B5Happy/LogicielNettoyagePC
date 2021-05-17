@@ -32,9 +32,14 @@ namespace LogicielNettoyagePC
             InitializeComponent();
             winTemp = new DirectoryInfo(@"C:\Windows\Temp");
             appTemp = new DirectoryInfo(System.IO.Path.GetTempPath());
+            CheckActu();
+            GetDate();
 
         }
 
+        /// <summary>
+        /// Verifier les actus.
+        /// </summary>
         public void CheckActu()
         {
             string url = "Http://localhost/siteweb/actu.txt";
@@ -51,7 +56,10 @@ namespace LogicielNettoyagePC
                 }
             }
         }
-
+        
+        /// <summary>
+        /// Verifier la mise a jour.
+        /// </summary>
         public void CheckVersion()
         {
             string url = "Http://localhost/siteweb/version.txt";
@@ -65,18 +73,26 @@ namespace LogicielNettoyagePC
 
                 } else
                 {
-                    MessageBox.Show("Votre logiciel est à jour !", "Mise à jour", MessageBoxButton.OK, MessageBoxImage.Information)
+                    MessageBox.Show("Votre logiciel est à jour !", "Mise à jour", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
         }
 
-        //Calcul de la taille d'un dossier
+        /// <summary>
+        /// Calcul de la taille d'un dossier.
+        /// </summary>
+        /// <param name="dir">Dossier à traiter</param>
+        /// <returns> Teturn la taille total a nettoyer</returns>
         public long DirSize(DirectoryInfo dir)
         {
             return dir.GetFiles().Sum(fi => fi.Length) + dir.GetDirectories().Sum(di => DirSize(dir));
         }
 
-        // Vider un dossier
+
+        /// <summary>
+        /// Vider un dossier
+        /// </summary>
+        /// <param name="di"> un dossier</param>
         public void ClearTempData(DirectoryInfo di)
         {
             foreach (FileInfo file in di.GetFiles())
@@ -156,6 +172,7 @@ namespace LogicielNettoyagePC
             espace.Content = totalSize + " Mb";
             titre.Content = "Analyse effectué !";
             date.Content = DateTime.Today;
+            SaveDate();
 
         }
 
@@ -186,6 +203,21 @@ namespace LogicielNettoyagePC
             Nettoyer_btn.Content = "NETTOYAGE TERMINE";
             titre.Content = "Nettoyage effectué !";
             espace.Content = "0 Mb";
+        }
+
+        public void SaveDate()
+        {
+            string date = DateTime.Today.ToString();
+            File.WriteAllText("date.txt", date);
+        }
+
+        public void GetDate()
+        {
+            string dateFichier = File.ReadAllText("date.txt");
+            if(dateFichier != String.Empty)
+            {
+                date.Content = dateFichier;
+            }
         }
     }
 }
