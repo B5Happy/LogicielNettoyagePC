@@ -34,7 +34,7 @@
         <!-- Footer-->
         <Rectangle HorizontalAlignment="Center" Height="90" Margin="0,594,0,0" Stroke="Black" VerticalAlignment="Top" Width="1000" Fill="#FFF9F9F9" StrokeThickness="0"/>
         <Label Content="Copyright 2021 - BHappy" HorizontalAlignment="Center" Margin="0,601,0,0" VerticalAlignment="Top" Width="228" Height="42" Foreground="Black" FontFamily="Arial Narrow" FontSize="22" FontWeight="Normal"/>
-        <Rectangle HorizontalAlignment="Center" Height="40" Margin="0,644,0,0" Stroke="Black" VerticalAlignment="Top" Width="1000" Fill="#FFF36A6A" StrokeThickness="0" Visibility="Hidden"/>
+        <Rectangle x:Name="bandeau" HorizontalAlignment="Center" Height="40" Margin="0,644,0,0" Stroke="Black" VerticalAlignment="Top" Width="1000" Fill="#FFF36A6A" StrokeThickness="0" Visibility="Hidden"/>
         <Label Content="Copyright 2020 - BHappy" HorizontalAlignment="Center" Margin="0,644,0,0" VerticalAlignment="Top" Width="228" Height="42" Foreground="Black" FontFamily="Arial Narrow" FontSize="22" FontWeight="Normal" Visibility="Hidden"/>
 
 

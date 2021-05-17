@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,6 +25,7 @@ namespace LogicielNettoyagePC
     {
         public DirectoryInfo winTemp;
         public DirectoryInfo appTemp;
+        public string version = "1.0.0";
 
         public MainWindow()
         {
@@ -31,6 +33,41 @@ namespace LogicielNettoyagePC
             winTemp = new DirectoryInfo(@"C:\Windows\Temp");
             appTemp = new DirectoryInfo(System.IO.Path.GetTempPath());
 
+        }
+
+        public void CheckActu()
+        {
+            string url = "Http://localhost/siteweb/actu.txt";
+
+            using(WebClient client = new WebClient())
+            {
+                string actu = client.DownloadString(url);
+
+                if(actu != String.Empty)
+                {
+                    miss_a_jour_btn.Content = actu;
+                    miss_a_jour_btn.Visibility = Visibility.Visible;
+                    bandeau.Visibility = Visibility.Visible;
+                }
+            }
+        }
+
+        public void CheckVersion()
+        {
+            string url = "Http://localhost/siteweb/version.txt";
+
+            using (WebClient client = new WebClient())
+            {
+                string v = client.DownloadString(url);
+                if(version != v)
+                {
+                    MessageBox.Show("Une mise à jour est diso!", "Mise à jour", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                } else
+                {
+                    MessageBox.Show("Votre logiciel est à jour !", "Mise à jour", MessageBoxButton.OK, MessageBoxImage.Information)
+                }
+            }
         }
 
         //Calcul de la taille d'un dossier
@@ -72,7 +109,7 @@ namespace LogicielNettoyagePC
 
         private void Miss_a_jour_btn_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Votre logiciel est à jour!", "Mise à jour",MessageBoxButton.OK, MessageBoxImage.Information);
+            CheckVersion();
         }
 
 
